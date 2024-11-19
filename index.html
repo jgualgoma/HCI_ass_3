@@ -1,0 +1,62 @@
+<!doctype HTML>
+<html>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<script src="./aframe.min.js"></script>
+<script src="./aframe-ar.js"></script>
+
+<!-- support 3D text -->
+<script src="./aframe-text-geometry-component.min.js"></script>
+
+<body style="margin: 0px; overflow: hidden;">
+
+<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
+
+	<a-assets>
+		<a-asset-item id="exoFont" src="./exoBlack.typeface.json"></a-asset-item>
+		<img id="pixels" src="./pixels.png" />
+	</a-assets>
+
+	
+
+	<!-- 3D text -->
+	<a-marker type="pattern" url="./hiro.patt">
+
+		<!-- 
+			using aframe-text-geometry component
+			can set: bevelSize, bevelThickness, curveSegments, font, height, size, style, value.
+			alignment (centering) may be tricky; try calculating bounding box and repositioning.
+			for more info, see: https://www.npmjs.com/package/aframe-text-geometry-component
+		 -->
+
+        
+		
+        <a-entity text-geometry="value: LEAD FREE; font: #exoFont; size:0.1"
+			material="color: springgreen; src: #pixels; repeat: 0.5 0.5;" 
+			rotation="-90 0 0">
+		</a-entity>
+
+	</a-marker>
+
+    <a-marker type="pattern" url="./kanji.patt">
+
+		<!-- 
+			using aframe-text-geometry component
+			can set: bevelSize, bevelThickness, curveSegments, font, height, size, style, value.
+			alignment (centering) may be tricky; try calculating bounding box and repositioning.
+			for more info, see: https://www.npmjs.com/package/aframe-text-geometry-component
+		 -->
+
+        
+		
+        <a-entity text-geometry="value: CADMIUM & LEAD FREE; font: #exoFont; size:0.1"
+			material="color: forestgreen; src: #pixels; repeat: 0.5 0.5;" 
+			rotation="-90 0 0">
+		</a-entity>
+
+	</a-marker>
+
+    <a-entity camera></a-entity>
+    
+</a-scene>
+</body>
+</html>
